@@ -1,21 +1,24 @@
 function consultaCep(){
+    var cep = $("#cep").val();
+    $(".cep").hide();
+    $(".barra-progresso").show();
 
-    var cep = document.getElementById("cep").value;
-    
-    //Função JQuery
     $.ajax({
         url: "https://viacep.com.br/ws/"+cep+"/json/",
         type: "GET",
         success: function(response){
-            console.log(response);
-            document.getElementById("logradouro").innerHTML = response.logradouro;
-            document.getElementById("localidade").innerHTML = response.localidade;
-            //document.getElementById("uf").innerHTML = response.uf;
-            //Como fica usando JQuery:
+            $("#titulo").html(response.cep);
+            $("#logradouro").html(response.logradouro);
+            $("#bairro").html(response.bairro);
+            $("#localidade").html(response.localidade);
             $("#uf").html(response.uf);
+            $(".cep").show();
+            $(".barra-progresso").hide();
         }
     })
-
-
-
 }
+
+$(function(){
+    $(".cep").hide();
+    $(".barra-progresso").hide();
+});

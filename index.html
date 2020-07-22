@@ -2,16 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Curso JQuery e Ajax</title>
+    <title>Consulta Cep</title>
        
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <input id="cep">
-    <button type="button" onclick="consultaCep()">Consultar</button>
-    <p id="logradouro">Rua</p>
-    <p id="localidade">Cidade</p>
-    <p id="uf">Estado</p>
+    
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand text-white">Consulta Cep</a>  
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="00000-000" id="cep">
+            <button class="btn btn-outline-light my-2 my-sm-0" onclick="consultaCep()">Consultar</button>
+        </div>
+    </nav>
+
+    <div class="container barra-progresso" style="margin-top: 80px;">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </div>
+
+    <div class="container cep">
+        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+            <h3 id="titulo">CEP</h3>
+        </div>
+        <div class="row">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Logradouro</td>
+                        <td id="logradouro"></td>
+                    </tr>
+                    <tr>
+                        <td>Bairro</td>
+                        <td id="bairro"></td>
+                    </tr>
+                    <tr>
+                        <td>Cidade</td>
+                        <td id="localidade"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado</td>
+                        <td id="uf"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>
